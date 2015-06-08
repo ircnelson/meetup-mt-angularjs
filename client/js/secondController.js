@@ -3,18 +3,18 @@
     
     app.controller('SecondController', SecondController);
     
-    SecondController.$inject = ["$scope", "MyService"];
+    SecondController.$inject = ["$scope", "MyFactory"];
     
-    function SecondController ($scope, MyService) {
+    function SecondController ($scope, MyFactory) {
         
         $scope.getName = function () {
-            return MyService.getName();
+            return MyFactory.getName();
         };
         
         $scope.setName = function (value) {
-            return MyService.setName(value);
+            return MyFactory.setName(value);
         };
 
     }
-    
+
 })();

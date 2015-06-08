@@ -3,23 +3,22 @@
     
     app.controller('FirstController', FirstController);
 
-    FirstController.$inject = ["$scope", "MyService"];
+    FirstController.$inject = ["$scope", "MyFactory"];
     
-    function FirstController ($scope, MyService) {
+    function FirstController ($scope, MyFactory) {
         
         $scope.somar = function (n, m) {
             return n + ' + ' + m + ' = ' + (n + m);
         };
         
         $scope.getName = function () {
-            return MyService.getName();
+            return MyFactory.getName();
         };
         
         $scope.setName = function (value) {
-            return MyService.setName(value);
+            return MyFactory.setName(value);
         };
 
     }
-    
-    
+
 })();
