@@ -1,6 +1,3 @@
-/*
-    o escopo de código abaixo vai permanecer dentro da função e não terá acesso global
-*/
 (function () {
     var app = angular.module('meetup', []);
     
@@ -9,14 +6,12 @@
     function MainController ($scope) {
         
         /*
-            retirado a propriedade 'soma' do $scope que contém a chamada de uma função
-            
-            e a nossa view? vai quebrar!!
+            troquei "soma" pra "somar" porque começou a me incomodar :s
         */
         
-        // $scope.soma = function (n, m) {
-        //     return n + ' + ' + m + ' = ' + (n + m);
-        // };
+        $scope.somar = function (n, m) {
+            return n + ' + ' + m + ' = ' + (n + m);
+        };
     }
 
 })();

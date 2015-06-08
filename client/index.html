@@ -3,20 +3,20 @@
 <head>
 </head>
 
-<!-- 
-    o nome do módulo deve ser colocado na diretiva ng-app.
--->
-
 <body ng-app="meetup">
-    
-    <!-- 
-        - Quero que isso vá para um controller...
-    -->
-    
+
     5 + 2 = {{ 5 + 2 }}
-    <div ng-controller="MainController">{{ soma(5, 2) }}</div>
+
+    <div ng-controller="MainController">{{ somar(5, 2) }}</div>
     
     <script src="bower_components/angularjs/angular.js"></script>
-    <script src="js/scripts.js"></script>
+    
+    <!-- 
+        simulando o processo de minificação de JS 
+        
+        https://marijnhaverbeke.nl/uglifyjs
+    -->
+    <script src="js/scripts.min.js"></script>
+    
 </body>
 </html>
