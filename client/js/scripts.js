@@ -7,9 +7,16 @@
     app.controller('MainController', MainController);
     
     function MainController ($scope) {
-        $scope.soma = function (n, m) {
-            return n + ' + ' + m + ' = ' + (n + m);
-        };
+        
+        /*
+            retirado a propriedade 'soma' do $scope que contém a chamada de uma função
+            
+            e a nossa view? vai quebrar!!
+        */
+        
+        // $scope.soma = function (n, m) {
+        //     return n + ' + ' + m + ' = ' + (n + m);
+        // };
     }
 
 })();
