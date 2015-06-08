@@ -3,16 +3,16 @@
     
     app.controller('SecondController', SecondController);
     
-    SecondController.$inject = ["$scope", "MyFactory"];
+    SecondController.$inject = ["$scope", "MyProvider"];
     
-    function SecondController ($scope, MyFactory) {
+    function SecondController ($scope, MyProvider) {
         
         $scope.getName = function () {
-            return MyFactory.getName();
+            return MyProvider.getName();
         };
         
         $scope.setName = function (value) {
-            return MyFactory.setName(value);
+            return MyProvider.setName(value);
         };
 
     }

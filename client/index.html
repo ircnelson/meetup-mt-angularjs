@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" />
 </head>
 
 <body ng-app="meetup">
@@ -17,6 +18,12 @@
         {{ getName() }}
     </div>
     
+    <pre>
+        factory: fn()
+        service: new fn()
+        provider: (new fn()).$get()
+    </pre>
+    
     <script src="bower_components/angularjs/angular.js"></script>
     
     <script src="js/app.js"></script>
@@ -24,6 +31,7 @@
     <script src="js/secondController.js"></script>
     <script src="js/myService.js"></script>
     <script src="js/myFactory.js"></script>
+    <script src="js/myProvider.js"></script>
     
 </body>
 </html>
