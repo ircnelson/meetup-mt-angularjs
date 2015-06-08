@@ -2,14 +2,21 @@
 <html>
 <head>
 </head>
-<body ng-app>
+
+<!-- 
+    o nome do módulo deve ser colocado na diretiva ng-app.
+-->
+
+<body ng-app="meetup">
     
     <!-- 
-        - Agora vai!
+        - Quero que isso vá para um controller...
     -->
     
     5 + 2 = {{ 5 + 2 }}
+    <div ng-controller="MainController">{{ soma(5, 2) }}</div>
     
     <script src="bower_components/angularjs/angular.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
