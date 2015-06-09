@@ -1,18 +1,28 @@
 (function () {
-    
-    var app = angular.module('meetup', []);
+
+    var app = angular.module('meetup', ['ngSanitize', 'ngNotifier']);
     
     app.config(Config);
     
-    /*
-        convenção usada para providers: sufixo 'Provider'
-        lembrando que apenas 'Provider' estará disponível nessa fase de configuração, enquanto Service e Factory não estarão
-    */
+    Config.$inject = ['$provide'];
     
-    Config.$inject = ['MyProviderProvider'];
-    
-    function Config (MyProviderProvider) {
-        MyProviderProvider.setHelloMessage("Olá");
+    function Config($provide) {
+
+        $provide.decorator('emailService', function($delegate) {
+
+            $delegate.sendWithSignature = function(recipient, signature) {
+            	
+                var output = 'email enviado: "' + this.email + '" para ' + recipient;
+                
+                if (signature) {
+                	output += ' - ' + signature;
+                }
+                
+                return output;
+            };
+        
+			return $delegate;
+      });
     }
-    
+
 })();

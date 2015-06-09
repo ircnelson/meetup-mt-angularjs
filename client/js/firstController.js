@@ -3,20 +3,16 @@
     
     app.controller('FirstController', FirstController);
 
-    FirstController.$inject = ["$scope", "MyFactory"];
+    FirstController.$inject = ["$scope", "emailService"];
     
-    function FirstController ($scope, MyFactory) {
+    function FirstController ($scope, emailService) {
         
-        $scope.somar = function (n, m) {
-            return n + ' + ' + m + ' = ' + (n + m);
-        };
+        $scope.destinatario = "dev@meetup-mt.com.br";
+        $scope.conteudo = "Meetup - MT! - o Alvaro vai tirar uma foto da galera com pau de selfie! :-)";
         
-        $scope.getName = function () {
-            return MyFactory.getName();
-        };
-        
-        $scope.setName = function (value) {
-            return MyFactory.setName(value);
+        $scope.enviarEmail = function (conteudo, destinatario, assinatura) {
+            emailService.setContent(conteudo);
+            $scope.resultado = emailService.sendWithSignature(destinatario, assinatura);
         };
 
     }
