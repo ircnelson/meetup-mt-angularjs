@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('meetup');
+    var app = angular.module('ngNotifier');
     
     app.filter('prettyHtmlMail', function() {
         return function(input) {
