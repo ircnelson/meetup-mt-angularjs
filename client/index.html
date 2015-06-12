@@ -10,37 +10,21 @@
 <body ng-app="meetup">
 
     <div class="container">
-
-        <div ng-controller="GithubController">
-
-            <input placeholder="Username" type="text" ng-model="username" /> <button ng-click="search(username)">Pesquisar</button>
-            
-            <h2>
-                <img ng-src="{{ user.avatar_url }}" width="64" height="64" />
-                
-                <a href="{{ user.html_url }}">{{ user.name }}</a>`s profile
-            </h2>
-            
-            <div class="col-md-3">
-            
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#">Followers <span class="badge pull-right">{{ user.followers }}</span></a></li>
-                    <li><a href="#">Following <span class="badge pull-right">{{ user.following }}</span></a></li>
-                    <li><a href="#">Public repository <span class="badge pull-right">{{ user.public_repos }}</span></a></li>
-                    <li><a href="#">Public gists <span class="badge pull-right">{{ user.public_gists }}</span></a></li>
-                </ul>
-            </div>
-        </div>
-
+        
+        <div ui-view="search"></div>
+        
+        <div ui-view="content"></div>
     </div>
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/githubController.js"></script>
+    <script src="js/profileController.js"></script>
 
 </body>
 

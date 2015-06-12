@@ -3,19 +3,14 @@
     
     app.controller('GithubController', GithubController);
 
-    GithubController.$inject = ["$scope", "$http", "GITHUB"];
+    GithubController.$inject = ["$scope", "$state"];
     
-    function GithubController ($scope, $http, GITHUB) {
+    function GithubController ($scope, $state) {
 
         $scope.username = 'ircnelson';
 
-        $scope.search = function (username) {
-            $http.get(GITHUB.apiUrl.concat("users/").concat(username)).then(function (response) {
-                
-                console.log(response);
-                
-                $scope.user = response.data;
-            });
+        $scope.goToProfile = function (username) {
+            $state.go('app.github.user', { username: username });
         }
 
     }

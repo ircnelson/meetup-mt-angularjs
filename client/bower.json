@@ -16,6 +16,7 @@
   "dependencies": {
     "angularjs": "~1.4.0",
     "angular-sanitize": "~1.4.0",
-    "angular-bootstrap": "~0.13.0"
+    "angular-bootstrap": "~0.13.0",
+    "angular-ui-router": "~0.2.15"
   }
 }

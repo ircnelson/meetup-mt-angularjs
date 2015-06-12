@@ -1,0 +1,21 @@
+<h2>
+    <img ng-src="{{ user.avatar_url }}" width="64" height="64" />
+    
+    <a href="{{ user.html_url }}">{{ user.name }}</a>`s profile
+</h2>
+
+<div class="row">
+    <div class="col-md-3">
+    
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">Followers <span class="badge pull-right">{{ user.followers }}</span></a></li>
+            <li><a href="#">Following <span class="badge pull-right">{{ user.following }}</span></a></li>
+            <li><a href="#">Public repository <span class="badge pull-right">{{ user.public_repos }}</span></a></li>
+            <li><a href="#">Public gists <span class="badge pull-right">{{ user.public_gists }}</span></a></li>
+        </ul>
+    </div>
+    
+    <div class="col-md-9">
+        <div ui-view="users"></div>
+    </div>
+</div>
