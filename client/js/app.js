@@ -15,7 +15,7 @@
     	
     	$stateProvider
 	        .state('app', {
-	            url: "/github",
+	            url: "/home",
 	            abstract: true,
 	            views: {
 	            	'search': {
@@ -35,6 +35,36 @@
 	        		'content@': {
 	        			templateUrl: "templates/profile.html",
 	        			controller: "ProfileController"
+	        		}
+        		}
+	        })
+	        
+	        .state('app.github.user.followers', {
+	        	url: "/followers",
+	        	views: {
+	        		'more-info': {
+	        			templateUrl: "templates/users.html",
+	        			controller: "FollowersController"
+	        		}
+        		}
+	        })
+	        
+	        .state('app.github.user.following', {
+	        	url: "/following",
+	        	views: {
+	        		'more-info': {
+	        			templateUrl: "templates/users.html",
+	        			controller: "FollowingController"
+	        		}
+        		}
+	        })
+	        
+	        .state('app.github.user.public_repos', {
+	        	url: "/public_repos",
+	        	views: {
+	        		'more-info': {
+	        			templateUrl: "templates/repositories.html",
+	        			controller: "PublicRepositoryController"
 	        		}
         		}
 	        });

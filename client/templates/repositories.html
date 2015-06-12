@@ -1,0 +1,28 @@
+<h3>Public Repositories</h3>
+
+<div class="col-md-6" ng-repeat="repo in repositories track by repo.id">
+    <div class="panel panel-info">
+        <div class="panel-heading"><a ng-href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+        </div>
+        <div ng-if="repo.description" class="panel-body">
+            <p>{{ repo.description }}</p>
+        </div>
+    
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-2">
+                    <div> Stars <span class="badge"> {{ repo.stargazers_count }}</span></div>
+                </div>
+    
+                <div class="col-md-2">
+                    <div> Watchers <span class="badge"> {{ repo.watchers_count }}</span></div>
+                </div>
+    
+                <div class="col-md-2">
+                    <div> Forks <span class="badge"> {{ repo.forks_count }}</span></div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+</div>

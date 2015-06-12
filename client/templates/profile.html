@@ -1,21 +1,23 @@
 <h2>
-    <img ng-src="{{ user.avatar_url }}" width="64" height="64" />
-    
-    <a href="{{ user.html_url }}">{{ user.name }}</a>`s profile
+    <img alt="{{ user.login }}" class="img-circle" ng-src="{{ user.avatar_url }}" width="64" height="64" />
+    <a href="{{ user.html_url }}">{{ user.name }}</a>
+    <h5>Created at: {{ user.created_at | date: 'dd/mm/yyyy' }}</h5>
 </h2>
+
+<hr />
 
 <div class="row">
     <div class="col-md-3">
     
         <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#">Followers <span class="badge pull-right">{{ user.followers }}</span></a></li>
-            <li><a href="#">Following <span class="badge pull-right">{{ user.following }}</span></a></li>
-            <li><a href="#">Public repository <span class="badge pull-right">{{ user.public_repos }}</span></a></li>
-            <li><a href="#">Public gists <span class="badge pull-right">{{ user.public_gists }}</span></a></li>
+            <li ng-class="{ active: $state.is('app.github.user.followers') }"><a ui-sref=".followers">Followers <span class="badge pull-right">{{ user.followers }}</span></a></li>
+            <li ng-class="{ active: $state.is('app.github.user.following') }"><a ui-sref=".following">Following <span class="badge pull-right">{{ user.following }}</span></a></li>
+            <li ng-class="{ active: $state.is('app.github.user.public_repos') }"><a ui-sref=".public_repos">Public repository <span class="badge pull-right">{{ user.public_repos }}</span></a></li>
+            <li ng-class="{ active: $state.is('app.github.user.public_gists') }"><a ui-sref=".public_gists">Public gists <span class="badge pull-right">{{ user.public_gists }}</span></a></li>
         </ul>
     </div>
     
     <div class="col-md-9">
-        <div ui-view="users"></div>
+        <div ui-view="more-info"></div>
     </div>
 </div>

@@ -3,16 +3,16 @@
     
     app.controller('ProfileController', ProfileController);
 
-    ProfileController.$inject = ["$scope", "$stateParams", "$http", "GITHUB"];
+    ProfileController.$inject = ["$scope", "$state", "$stateParams", "GithubService"];
     
-    function ProfileController ($scope, $stateParams, $http, GITHUB) {
-        
-        console.log($stateParams);
+    function ProfileController ($scope, $state, $stateParams, GithubService) {
         
         var username = $stateParams.username;
         
-        $http.get(GITHUB.apiUrl.concat("users/").concat(username)).then(function (response) {
-            $scope.user = response.data;
+        $scope.$state = $state;
+        
+        GithubService.getProfile(username).then(function (response) {
+            $scope.user = response;
         });
     }
 

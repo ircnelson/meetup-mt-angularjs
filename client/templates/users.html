@@ -1,6 +1,9 @@
 <h3>{{ title }}</h3>
-<ul>
-    <li ng-repeat="user in users">
-        {{ user.name }}
-    </li>
-</ul>
+
+<div ng-repeat="user in users track by user.id">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <img alt="{{ user.login }}" class="img-circle" ng-src="{{ user.avatar_url }}" width="32" height="32" />  <a ui-sref="^.^.user({ username: user.login })">{{ user.login }}</a>
+        </div>
+    </div>
+</div>
